@@ -1,25 +1,25 @@
-import '@styles/global.css';
-import { Children } from 'react';
+import "@styles/globals.css";
+import Nav from '@components/Nav';
+import Provider from '@components/Provider';
 
 export const metadata = {
-    title: "Quote Board", 
-    description: "Share your quotes"
-}
+  title: "Quote Board",
+  description: "Share your quotes",
+};
 
-const RootLayout = ( {children}) => {
-  return (
-    <html Lang="en">
-        <body>
-            <div class="main">
-                <div class="gradient" />
-            </div>
+const RootLayout = ({ children }) => (
+  <html lang='en'>
+    <body>
+        <div className='main'>
+          <div className='gradient' />
+        </div>
 
-            <main classname="app">
-                {children}
-            </main>
-        </body>
-    </html>
-  )
-}
+        <main className='app'>
+            <Nav/>
+          {children}
+        </main>
+    </body>
+  </html>
+);
 
-export default RootLayout
+export default RootLayout;
