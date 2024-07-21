@@ -5,7 +5,7 @@ import Image from "next/image";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
 
-const Nav = () => {
+const SideNav = () => {
   const { data: session } = useSession();
 
   const [providers, setProviders] = useState(null);
@@ -19,7 +19,7 @@ const Nav = () => {
   }, []);
 
   return (
-    <nav className='flex-between w-full mb-16 pt-3'>
+    <nav className='side_nav'>
       <Link href='/' className='flex gap-2 flex-center'>
         <Image
           src='/assets/images/gmr_logo.svg'
@@ -136,4 +136,4 @@ const Nav = () => {
   );
 };
 
-export default Nav;
+export default SideNav;

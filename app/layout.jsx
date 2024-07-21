@@ -1,10 +1,11 @@
 import "@styles/globals.css";
-import Nav from '@components/Nav';
-import Provider from '@components/Provider';
+
+import Nav from "@components/Nav";
+import Provider from "@components/Provider";
 
 export const metadata = {
-  title: "Quote Board",
-  description: "Share your quotes",
+  title: "Promptopia",
+  description: "Discover & Share AI Prompts",
 };
 
 const RootLayout = ({ children }) => (
@@ -16,10 +17,10 @@ const RootLayout = ({ children }) => (
         </div>
 
         <main className='app'>
-            <Nav/>
+         {/*<Nav />*/}
           {children}
         </main>
-        </Provider>
+      </Provider>
     </body>
   </html>
 );

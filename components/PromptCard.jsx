@@ -4,6 +4,7 @@ import { useState } from "react";
 import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
+import React, { useRef } from 'react';
 
 const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   const { data: session } = useSession();
@@ -11,6 +12,31 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   const router = useRouter();
 
   const [copied, setCopied] = useState("");
+
+  const cardRef = useRef(null);
+
+  const handleMouseMove = (e) => {
+    const card = cardRef.current;
+    const rect = card.getBoundingClientRect();
+    const x = e.clientX - rect.left; // x position within the element
+    const y = e.clientY - rect.top;  // y position within the element
+
+    const centerX = rect.width / 3;
+    const centerY = rect.height / 3;
+
+    const percentX = (x - centerX) / centerX;
+    const percentY = (y - centerY) / centerY;
+
+    const rotateX = percentY * -2; // Rotate between -15deg to 15deg
+    const rotateY = percentX * 2; // Rotate between -15deg to 15deg
+
+    card.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg)`;
+  };
+
+  const handleMouseLeave = () => {
+    const card = cardRef.current;
+    card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0)';
+  };
 
   const handleProfileClick = () => {
     console.log(post);
@@ -27,7 +53,12 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   };
 
   return (
-    <div className='prompt_card'>
+    <div 
+    className='prompt_card'
+    ref={cardRef}
+    onMouseMove={handleMouseMove}
+    onMouseLeave={handleMouseLeave}
+    onClick={() => {console.log("click")}}>
       <div className='flex justify-between items-start gap-5'>
         <div
           className='flex-1 flex justify-start items-center gap-3 cursor-pointer'
@@ -65,7 +96,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         </div>
       </div>
 
-      <p className='my-4 font-satoshi text-sm text-gray-700'>{post.prompt}</p>
+      <p className='my-4 font-satoshi text-sm text-gray-700 prompt_text'>{post.prompt}</p>
       <p
         className='font-inter text-sm blue_gradient cursor-pointer'
         onClick={() => handleTagClick && handleTagClick(post.tag)}
