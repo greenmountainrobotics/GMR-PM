@@ -35,16 +35,9 @@ const SideNav = () => {
       {/* Desktop Navigation */}
       <div className='sm:flex hidden'>
         {session?.user ? (
-          <div className='flex gap-3 md:gap-5'>
-            <Link href='/create-prompt' className='black_btn'>
-              Create Post
-            </Link>
+          <div className='w-full flex flex-col'>
 
-            <button type='button' onClick={signOut} className='outline_btn'>
-              Sign Out
-            </button>
-
-            <Link href='/profile'>
+            <Link href='/profile' className="flex flex-row m-5">
               <Image
                 src={session?.user.image}
                 width={37}
@@ -52,7 +45,63 @@ const SideNav = () => {
                 className='rounded-full'
                 alt='profile'
               />
+                <span className="ml-4 font-satoshi font-bold flex justify-center items-center text-center text-2xl">{session?.user.name}</span>
             </Link>
+             
+
+            <Link href='/profile' className="button">
+              <Image
+                src={session?.user.image}
+                width={20}
+                height={20}
+                className='rounded-full'
+                alt='profile'/>
+                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Meeting Plans</span>
+            </Link>
+
+           
+            <Link href='/profile' className="button">
+              <Image
+                src={session?.user.image}
+                width={20}
+                height={20}
+                className='rounded-full'
+                alt='profile'/>
+                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">CAD/Manufacturing</span>
+            </Link>
+
+
+            <Link href='/profile' className="button">
+              <Image
+                src={session?.user.image}
+                width={20}
+                height={20}
+                className='rounded-full'
+                alt='profile'/>
+                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Software/Electrical</span>
+            </Link>
+
+           
+            <Link href='/profile' className="button">
+              <Image
+                src={session?.user.image}
+                width={20}
+                height={20}
+                className='rounded-full'
+                alt='profile'/>
+                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Buisness/Outreach</span>
+            </Link>
+
+
+            <Link href='/create-prompt' className='black_btn mt-5 ml-5 mr-5'>
+              Create Post
+            </Link>
+
+            <button type='button' onClick={signOut} className='outline_btn mt-5 ml-5 mr-5'>
+              Sign Out
+            </button>
+
+           
           </div>
         ) : (
           <>

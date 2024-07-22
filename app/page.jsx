@@ -1,6 +1,7 @@
 import Feed from "@components/Feed";
 import SideNav from "@components/SideNav";
 
+
 const Home = () => (
   <section className='w-full h-screen flex-center flex-col'>
     {/*<h1 className='head_text text-center'>
@@ -13,7 +14,7 @@ const Home = () => (
       discover, create and share creative prompts
     </p>*/}
           <div className="flex w-full h-full">
-            <SideNav className="flex"/>
+             <SideNav className=""/>
 ,            <Feed className="flex"/>
           </div >
 

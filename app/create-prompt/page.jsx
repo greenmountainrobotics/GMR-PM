@@ -44,6 +44,7 @@ const CreatePrompt = () => {
       setPost={setPost}
       submitting={submitting}
       handleSubmit={createPrompt}
+      className='h-full w-full flex-center flex-col gap-4'
     />
   );
 };
