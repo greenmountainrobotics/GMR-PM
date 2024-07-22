@@ -6,7 +6,7 @@ import PromptCard from "./PromptCard";
 
 const PromptCardList = ({ data, handleTagClick }) => {
   return (
-    <div className='mt-16 prompt_layout'>
+    <div className='prompt_layout'>
       {data.map((post) => (
         <PromptCard
           key={post._id}
@@ -68,7 +68,7 @@ const Feed = () => {
   };
 
   return (
-    <section className=''>
+    <section className='feed'>
       <form className='relative w-full flex-center'>
         <input
           type='text'

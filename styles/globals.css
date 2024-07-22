@@ -74,7 +74,7 @@
 /* Tailwind Styles */
 
 .app {
-  @apply relative z-10 flex justify-center items-center flex-col max-w-7xl mx-auto sm:px-16 px-6;
+  @apply w-full h-full;
 }
 
 .black_btn {
@@ -134,12 +134,12 @@
 }
 
 .prompt_layout {
-  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3;
+  @apply space-y-6 py-8 sm:columns-2 sm:gap-6 xl:columns-3 overflow-y-auto overflow-x-hidden w-full self-center;
 }
 
 /* Feed Component */
 .feed {
-  @apply ml-16 mt-16 mx-auto max-w-xl flex justify-center items-center flex-col gap-2;
+  @apply ml-10 mr-10 w-full h-full;
 }
 
 
@@ -154,7 +154,7 @@
 
 /* Nav Component */
 .logo_text {
-  @apply max-sm:hidden font-satoshi font-semibold text-lg text-black tracking-wide;
+  @apply max-sm:hidden font-satoshi font-semibold text-lg text-gray-200 tracking-wide;
 }
 
 .dropdown {
@@ -171,7 +171,7 @@
 }
 
 .side_nav {
-  @apply fixed top-0 left-0 w-64 h-screen bg-gray-200 p-4 overflow-y-auto
+  @apply h-screen bg-gray-900 text-white backdrop-blur-lg backdrop-filter md:w-[400px] 
 }
 .flex-center {
   @apply flex justify-center items-center;

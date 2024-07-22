@@ -20,7 +20,8 @@ const SideNav = () => {
 
   return (
     <nav className='side_nav'>
-      <Link href='/' className='flex gap-2 flex-center'>
+     
+      <Link href='/' className='flex gap-2 flex-center p-4'>
         <Image
           src='/assets/images/gmr_logo.svg'
           alt='logo'
@@ -129,8 +130,7 @@ const SideNav = () => {
                   Sign in
                 </button>
               ))}
-          </>
-        )}
+          </>)}
       </div>
     </nav>
   );
