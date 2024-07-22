@@ -49,7 +49,7 @@ const SideNav = () => {
             </Link>
              
 
-            <Link href='/profile' className="button">
+            <Link href='/meeting-plans' className="button">
               <Image
                 src={session?.user.image}
                 width={20}

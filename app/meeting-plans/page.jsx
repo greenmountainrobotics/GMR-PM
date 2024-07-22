@@ -1,27 +1,18 @@
 import React from 'react'
-import SideNav from '@components/SideNav'
-import PromptCard from '@components/PromptCard'
+import SpecialFeed from "@components/SpecialFeed";
+import SideNav from "@components/SideNav";
 
-const MeetingPlans = ({ name, desc, data, handleEdit, handleDelete }) => {
-    return (
-      <section className='w-full '>
-        <h1 className='head_text text-left'>
-          <span className='blue_gradient'>{name} Profile</span>
-        </h1>
-        <p className='desc text-left'>{desc}</p>
-  
-        <div className='mt-10 prompt_layout'>
-          {data.map((post) => (
-            <PromptCard
-              key={post._id}
-              post={post}
-              handleEdit={() => handleEdit && handleEdit(post)}
-              handleDelete={() => handleDelete && handleDelete(post)}
-            />
-          ))}
-        </div>
-      </section>
-    );
-  };
+const MeetingPlans = () => {
+  return (
+    <div className="flex w-full h-full">
+        <SideNav className=""/>
+        <SpecialFeed 
+            word="meeting-plans"
+            title = "Meeting Plans"
+            className="flex"/>
+
+    </div >
+  )
+};
 
 export default MeetingPlans
