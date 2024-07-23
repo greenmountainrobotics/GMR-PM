@@ -109,7 +109,11 @@
 }
 
 .popup-text{
-  color: (var(--light-gray-text));
+  color: var(--light-gray-text);
+}
+
+.svg-icon {
+  background-color: var(--light-gray-text); /* Set the color to white */
 }
 
 @media screen and (max-width: 640px) {
@@ -120,16 +124,17 @@
 
 /* Tailwind Styles */
 
+
 .app {
   @apply w-full h-full;
 }
 
 .black_btn {
-  @apply rounded-full border border-black bg-black py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+  @apply rounded-full border border-black bg-green-900 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
 }
 
 .outline_btn {
-  @apply rounded-full border border-black bg-transparent py-1.5 px-5 text-black transition-all hover:bg-black hover:text-white text-center text-sm font-inter flex items-center justify-center;
+  @apply rounded-full border border-green-900 bg-transparent py-1.5 px-5 text-green-900 transition-all hover:bg-green-900 hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
 
 .head_text {

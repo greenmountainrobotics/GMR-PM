@@ -8,7 +8,8 @@ const PopupPortal = ({ children, close }) => {
     <div className="popup_overlay" onClick={close}>
       <div className="popup_modal" onClick={(e) => e.stopPropagation()}>
         {children}
-        <button className="close-button" onClick={close}>Close</button>
+
+        <button className="close-button popup-text" onClick={close}>Close</button>
       </div>
     </div>,
     document.body

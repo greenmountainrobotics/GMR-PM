@@ -49,46 +49,56 @@ const SideNav = () => {
             </Link>
              
 
-            <Link href='/meeting-plans' className="button">
+            <Link href='/' className="button">
               <Image
-                src={session?.user.image}
-                width={20}
+                src="/assets/icons/meeting-plans.svg"
+                width={24}
                 height={20}
                 className='rounded-full'
-                alt='profile'/>
+                alt='all-tasks'/>
+                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">All Tasks</span>
+            </Link> 
+
+            <Link href='/meeting-plans' className="button">
+              <Image
+                src="/assets/icons/meeting-plans.svg"
+                width={24}
+                height={20}
+                className='rounded-full'
+                alt='meeting-plans'/>
                 <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Meeting Plans</span>
             </Link>
 
            
-            <Link href='/profile' className="button">
+            <Link href='/cad-manufacturing' className="button">
               <Image
-                src={session?.user.image}
-                width={20}
+                src="/assets/icons/cad-manufacturing.svg"
+                width={24}
                 height={20}
                 className='rounded-full'
-                alt='profile'/>
+                alt='cad-manufacturing'/>
                 <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">CAD/Manufacturing</span>
             </Link>
 
 
-            <Link href='/profile' className="button">
+            <Link href='/software-electrical' className="button">
               <Image
-                src={session?.user.image}
-                width={20}
+                src="/assets/icons/code-new.svg"
+                width={24}
                 height={20}
                 className='rounded-full'
-                alt='profile'/>
+                alt='software-electrical'/>
                 <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Software/Electrical</span>
             </Link>
 
            
-            <Link href='/profile' className="button">
+            <Link href='/buisnes-outreach' className="button">
               <Image
-                src={session?.user.image}
-                width={20}
+                src="/assets/icons/buisness-outreach.svg"
+                width={24}
                 height={20}
                 className='rounded-full'
-                alt='profile'/>
+                alt='buisnes-outreach'/>
                 <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Buisness/Outreach</span>
             </Link>
 
@@ -97,7 +107,7 @@ const SideNav = () => {
               Create Post
             </Link>
 
-            <button type='button' onClick={signOut} className='outline_btn mt-5 ml-5 mr-5'>
+            <button type='button' onClick={signOut} className='outline_btn mt-5 ml-5 mr-5 '>
               Sign Out
             </button>
 
