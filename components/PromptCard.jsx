@@ -5,11 +5,18 @@ import Image from "next/image";
 import { useSession } from "next-auth/react";
 import { usePathname, useRouter } from "next/navigation";
 import React, { useRef } from 'react';
+import CardPopup from "./CardPopup";
 
 const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
   const { data: session } = useSession();
   const pathName = usePathname();
   const router = useRouter();
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    {handleMouseLeave()}
+    setShowPopup(!showPopup);
+  };
 
   const [copied, setCopied] = useState("");
 
@@ -58,7 +65,14 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
     ref={cardRef}
     onMouseMove={handleMouseMove}
     onMouseLeave={handleMouseLeave}
-    onClick={() => {console.log("click")}}>
+    onClick={() => {
+      {togglePopup()}
+    }}>
+      {showPopup && (
+      <CardPopup
+        message="Hello, this is a popup message!"
+        closePopup={togglePopup}
+      />)}
       <div className='flex justify-between items-start gap-5'>
         <div
           className='flex-1 flex justify-start items-center gap-3 cursor-pointer'
@@ -96,7 +110,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         </div>
       </div>
 
-      <p className='my-4 font-satoshi text-sm text-gray-700 prompt_text'>{post.prompt}</p>
+      <p className='my-4 font-satoshi text-sm text-gray-400 prompt_text'>{post.prompt}</p>
       <p
         className='font-inter text-sm blue_gradient cursor-pointer'
         onClick={() => handleTagClick && handleTagClick(post.tag)}
@@ -121,6 +135,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick }) => {
         </div>
       )}
     </div>
+    
   );
 };
 

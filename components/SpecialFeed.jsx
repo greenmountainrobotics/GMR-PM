@@ -46,7 +46,7 @@ const SpecialFeed = ({word, title}) => {
 
   return (
     <section className='feed'>
-      <h1 className='head_text text-left'>{title}</h1>
+      <h1 className='head_text text-left z-500'>{title}</h1>
 
         <SpecialPromptCardList
           data={filterPrompts(word)}

@@ -10,6 +10,9 @@
 */
 :root{
   --dark-gray: #17171d;
+  --light-gray: #323940;
+  --bg-overlay: #000000cf;
+  --light-gray-text: #b6c2cf;
 }
 
 .main {
@@ -75,6 +78,38 @@
   filter: blur(100px) saturate(150%);
   top: 80px;
   opacity: 0.25;
+}
+
+.popup_overlay{
+  position: fixed;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 99999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: var(--bg-overlay);
+  padding: 10px;
+}
+
+.popup_modal{
+  background: var(--light-gray);
+  border-radius: 10px;
+	padding: 40px;
+	width: 650px;
+  height: 500px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	gap: 14px;
+}
+
+.popup-text{
+  color: (var(--light-gray-text));
 }
 
 @media screen and (max-width: 640px) {
@@ -152,7 +187,7 @@
 
 /* Feed Component */
 .feed {
-  @apply ml-80 mr-10 w-full h-full;
+  @apply ml-72 mr-10 w-full h-full;
 }
 
 
@@ -180,7 +215,7 @@
 
 /* PromptCard Component */
 .prompt_card {
-  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit cursor-pointer shadow-lg;
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding ml-10 p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit cursor-pointer shadow-lg;
 }
 
 .prompt_card:hover {
