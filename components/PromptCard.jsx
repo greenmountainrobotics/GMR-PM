@@ -18,7 +18,6 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick, refresh}) 
     setShowPopup(!showPopup);
   };
 
-  const [copied, setCopied] = useState("");
 
   const cardRef = useRef(null);
 
@@ -53,11 +52,7 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick, refresh}) 
     router.push(`/profile/${post.creator._id}?name=${post.creator.username}`);
   };
 
-  const handleCopy = () => {
-    setCopied(post.prompt);
-    navigator.clipboard.writeText(post.prompt);
-    setTimeout(() => setCopied(false), 3000);
-  };
+
   
 
   return (
@@ -88,19 +83,6 @@ const PromptCard = ({ post, handleEdit, handleDelete, handleTagClick, refresh}) 
               {post.title}
             </h3>
           </div>
-        </div>
-
-        <div className='copy_btn' onClick={handleCopy}>
-          <Image
-            src={
-              copied === post.prompt
-                ? "/assets/icons/tick.svg"
-                : "/assets/icons/copy.svg"
-            }
-            alt={copied === post.prompt ? "tick_icon" : "copy_icon"}
-            width={12}
-            height={12}
-          />
         </div>
       </div>
 

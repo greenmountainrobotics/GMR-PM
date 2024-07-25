@@ -203,7 +203,11 @@
 }
 
 .form_input {
-  @apply w-full flex p-3 text-sm text-gray-300 outline-gray-600 bg-gray-600 font-satoshi font-semibold;
+  @apply w-[80%] flex p-3 text-lg text-gray-300 outline-gray-600 bg-[--light-gray] font-satoshi font-semibold mt-[-65px];
+}
+
+.form_input_bottom {
+  @apply w-[90%] flex p-3 text-sm text-gray-300 outline-gray-600 bg-[--light-gray] font-satoshi font-semibold;
 }
 
 /* Nav Component */
@@ -221,7 +225,7 @@
 
 /* PromptCard Component */
 .prompt_card {
-  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding ml-10 p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit max-h-60 cursor-pointer shadow-lg overflow-y-hidden;
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding ml-10 p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit cursor-pointer shadow-lg;
 }
 
 .prompt_card:hover {
