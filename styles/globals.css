@@ -12,7 +12,6 @@
   --dark-gray: #17171d;
   --light-gray: #323940;
   --bg-overlay: #000000cf;
-  --light-gray-text: #b6c2cf;
 }
 
 .main {
@@ -100,7 +99,9 @@
   border-radius: 10px;
 	padding: 40px;
 	width: 650px;
-  height: 500px;
+  min-height: 500px;
+  height: fit-content;
+  max-height: 1000px;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -198,11 +199,11 @@
 
 /* Form Component */
 .form_textarea {
-  @apply w-full flex rounded-lg h-[200px] mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply w-full flex h-auto min-h-[200px] max-h-full mt-2 p-3 text-sm text-gray-200 outline-gray-600 bg-gray-600;
 }
 
 .form_input {
-  @apply w-full flex rounded-lg mt-2 p-3 text-sm text-gray-500 outline-0;
+  @apply w-full flex p-3 text-sm text-gray-300 outline-gray-600 bg-gray-600 font-satoshi font-semibold;
 }
 
 /* Nav Component */
@@ -220,7 +221,7 @@
 
 /* PromptCard Component */
 .prompt_card {
-  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding ml-10 p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit cursor-pointer shadow-lg;
+  @apply flex-1 break-inside-avoid rounded-lg border border-gray-300 bg-white/20 bg-clip-padding ml-10 p-6 pb-4 backdrop-blur-lg backdrop-filter md:w-[360px] w-full h-fit max-h-60 cursor-pointer shadow-lg overflow-y-hidden;
 }
 
 .prompt_card:hover {

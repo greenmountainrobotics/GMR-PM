@@ -3,13 +3,11 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 
-const PopupPortal = ({ children, close }) => {
+const PopupPortal = ({ children }) => {
   return ReactDOM.createPortal(
     <div className="popup_overlay" onClick={close}>
       <div className="popup_modal" onClick={(e) => e.stopPropagation()}>
         {children}
-
-        <button className="close-button popup-text" onClick={close}>Close</button>
       </div>
     </div>,
     document.body

@@ -4,7 +4,7 @@ import { useState, useEffect } from "react";
 
 import PromptCard from "./PromptCard";
 
-const PromptCardList = ({ data, handleTagClick }) => {
+const PromptCardList = ({ data, handleTagClick, refresh }) => {
   return (
     <div className='prompt_layout'>
       {data.map((post) => (
@@ -12,7 +12,7 @@ const PromptCardList = ({ data, handleTagClick }) => {
           key={post._id}
           post={post}
           handleTagClick={handleTagClick}
-          
+          refresh = {refresh}
         />
       ))}
     </div>
@@ -86,9 +86,10 @@ const Feed = () => {
         <PromptCardList
           data={searchedResults}
           handleTagClick={handleTagClick}
+          refresh = {fetchPosts}
         />
       ) : (
-        <PromptCardList data={allPosts} handleTagClick={handleTagClick} />
+        <PromptCardList data={allPosts} handleTagClick={handleTagClick} refresh = {fetchPosts} />
       )}
     </section>
   );
