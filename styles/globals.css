@@ -134,6 +134,10 @@
   @apply rounded-full border border-black bg-green-900 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
 }
 
+.sign_in {
+  @apply rounded-full border border-black bg-green-900 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center w-36 h-14 m-10;
+}
+
 .outline_btn {
   @apply rounded-full border border-green-900 bg-transparent py-1.5 px-5 text-green-900 transition-all hover:bg-green-900 hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
@@ -203,11 +207,11 @@
 }
 
 .form_input {
-  @apply w-[80%] flex p-3 text-lg text-gray-300 outline-gray-600 bg-[--light-gray] font-satoshi font-semibold mt-[-65px];
+  @apply w-[80%] flex p-1 text-lg text-gray-300 outline-gray-600 bg-[--light-gray] font-satoshi font-semibold mt-[-65px] ;
 }
 
 .form_input_bottom {
-  @apply w-[90%] flex p-3 text-sm text-gray-300 outline-gray-600 bg-[--light-gray] font-satoshi font-semibold;
+  @apply w-[90%] flex p-3 text-sm text-gray-300 outline-gray-600 bg-[--light-gray] font-satoshi font-semibold bg-gray-600;
 }
 
 /* Nav Component */

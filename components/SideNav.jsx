@@ -4,12 +4,19 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { signIn, signOut, useSession, getProviders } from "next-auth/react";
+import PopupPortal from "./PopupPortal";
+import CreateCardPopup from "./CreateCardPopup";
 
 const SideNav = () => {
   const { data: session } = useSession();
 
   const [providers, setProviders] = useState(null);
   const [toggleDropdown, setToggleDropdown] = useState(false);
+  const [showPopup, setShowPopup] = useState(false);
+
+  const togglePopup = () => {
+    setShowPopup(!showPopup);
+  };
 
   useEffect(() => {
     (async () => {
@@ -20,6 +27,12 @@ const SideNav = () => {
 
   return (
     <nav className='side_nav'>
+      {showPopup && (
+      <CreateCardPopup
+      closePopup={togglePopup}
+      />
+      
+      )}
      
       <Link href='/' className='flex gap-2 flex-center p-4'>
         <Image
@@ -103,9 +116,9 @@ const SideNav = () => {
             </Link>
 
 
-            <Link href='/create-prompt' className='black_btn mt-5 ml-5 mr-5'>
+            <button onClick={() => {togglePopup()}} className='black_btn mt-5 ml-5 mr-5'>
               Create Post
-            </Link>
+            </button>
 
             <button type='button' onClick={signOut} className='outline_btn mt-5 ml-5 mr-5 '>
               Sign Out
@@ -117,16 +130,25 @@ const SideNav = () => {
           <>
             {providers &&
               Object.values(providers).map((provider) => (
-                <button
-                  type='button'
-                  key={provider.name}
-                  onClick={() => {
-                    signIn(provider.id);
-                  }}
-                  className='black_btn'
-                >
-                  Sign in
-                </button>
+                <PopupPortal>
+                      <Image
+                        src='/assets/images/gmr_logo.svg'
+                        alt='logo'
+                        width={200}
+                        height={200}
+                        className='object-contain'
+                      />
+                  <button
+                    type='button'
+                    key={provider.name}
+                    onClick={() => {
+                      signIn(provider.id);
+                    }}
+                    className='sign_in'>
+                    Sign in
+                  </button>
+                </PopupPortal>
+                
               ))}
           </>
         )}
@@ -134,6 +156,7 @@ const SideNav = () => {
 
       {/* Mobile Navigation */}
       <div className='sm:hidden flex relative'>
+        
         {session?.user ? (
           <div className='flex'>
             <Image
@@ -154,13 +177,15 @@ const SideNav = () => {
                 >
                   My Profile
                 </Link>
-                <Link
-                  href='/create-prompt'
+                <button
                   className='dropdown_link'
-                  onClick={() => setToggleDropdown(false)}
+                  onClick={() => {setToggleDropdown(false)
+                    togglePopup()
+                  }}
                 >
                   Create Prompt
-                </Link>
+                </button>
+                
                 <button
                   type='button'
                   onClick={() => {
