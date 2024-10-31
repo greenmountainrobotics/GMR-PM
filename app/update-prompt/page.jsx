@@ -1,20 +1,17 @@
-import { useEffect, useState } from "react";
-import { useRouter, useSearchParams } from "next/navigation";
-import { Suspense } from "react";
+"use client";
 
+import { useEffect, useState, Suspense } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import Form from "@components/Form";
 
-const UpdatePrompt = () => {
+const PromptEditor = ({ promptId }) => {
   const router = useRouter();
-  const searchParams = useSearchParams();
-  const promptId = searchParams.get("id");
-
   const [post, setPost] = useState({ prompt: "", tag: "", title: "" });
   const [submitting, setIsSubmitting] = useState(false);
 
   useEffect(() => {
     const getPromptDetails = async () => {
-      const response = await fetch(/api/prompt/${promptId});
+      const response = await fetch(`/api/prompt/${promptId}`);
       const data = await response.json();
 
       setPost({
@@ -34,7 +31,7 @@ const UpdatePrompt = () => {
     if (!promptId) return alert("Missing PromptId!");
 
     try {
-      const response = await fetch(/api/prompt/${promptId}, {
+      const response = await fetch(`/api/prompt/${promptId}`, {
         method: "PATCH",
         body: JSON.stringify({
           prompt: post.prompt,
@@ -54,16 +51,28 @@ const UpdatePrompt = () => {
   };
 
   return (
-    <Suspense fallback={<div>Loading...</div>}>
-      <Form
-      type='Edit'
+    <Form
+      type="Edit"
       post={post}
       setPost={setPost}
       submitting={submitting}
       handleSubmit={updatePrompt}
-    /> 
+    />
+  );
+};
+
+const UpdatePrompt = () => {
+  const searchParams = useSearchParams();
+  const promptId = searchParams.get("id");
+
+  return (
+    <Suspense fallback={<div>Loading prompt data...</div>}>
+      {promptId ? (
+        <PromptEditor promptId={promptId} />
+      ) : (
+        <div>Prompt ID not found.</div>
+      )}
     </Suspense>
-    
   );
 };
 
