@@ -36,7 +36,7 @@ const SideNav = () => {
      
       <Link href='/' className='flex gap-2 flex-center p-4'>
         <Image
-          src='/assets/images/gmr_logo.svg'
+          src='/assets/images/robohawks_logo.svg'
           alt='logo'
           width={40}
           height={40}
@@ -132,7 +132,7 @@ const SideNav = () => {
               Object.values(providers).map((provider) => (
                 <PopupPortal>
                       <Image
-                        src='/assets/images/gmr_logo.svg'
+                        src='/assets/images/robohawks_logo.svg'
                         alt='logo'
                         width={200}
                         height={200}
