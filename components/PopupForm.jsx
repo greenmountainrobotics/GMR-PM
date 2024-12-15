@@ -38,14 +38,18 @@ const PopupForm = ({ type, post, setPost, submitting, handleSubmit }) => {
             Tags
           </span>
 
-          <input
+          <select
             value={post.tag}
             onChange={(e) => setPost({ ...post, tag: e.target.value })}
-            type='text'
-            placeholder='#Tag'
             required
             className='form_input_bottom'
-          />
+          >
+            <option value="None">None</option>
+            <option value="Mechanical">Mechanical</option>
+            <option value="Outreach">Outreach</option>
+            <option value="Programming">Programming</option>
+            <option value="Business">Business</option>
+          </select>
         </label>
 
         <div className='flex-end mx-3 mb-5 p-2'>

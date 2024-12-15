@@ -7,8 +7,8 @@ const MeetingPlans = () => {
     <div className="flex w-full h-full">
         <SideNav className=""/>
         <SpecialFeed 
-            word="meeting-plans"
-            title = "Meeting Plans"
+            word="mechanical"
+            title = "Mechanical"
             className="flex"/>
 
     </div >

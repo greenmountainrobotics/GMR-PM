@@ -55,8 +55,15 @@ const CardPopup = ({promptId, closePopup, refresh}) => {
       } finally {
         setIsSubmitting(false);
       }
+     
+
       closePopup();
-      refresh();
+      try {
+        refresh();
+      } catch (error) {
+        
+      }
+      
     };
 
     const handleCopy = () => {

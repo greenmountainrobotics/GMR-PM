@@ -44,7 +44,7 @@ const CreateCardPopup = ({closePopup}) => {
   };
 
   return (
-    <PopupPortal>
+    <PopupPortal close={closePopup}>
       <div className="relative h-full w-full">
         <PopupForm 
          type='Create'

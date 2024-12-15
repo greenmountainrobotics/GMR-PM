@@ -42,7 +42,7 @@ const SideNav = () => {
           height={40}
           className='object-contain'
         />
-        <p className='logo_text'>GMR Tasks</p>
+        <p className='logo_text'>Robohawks Tasks</p>
       </Link>
 
       {/* Desktop Navigation */}
@@ -50,7 +50,7 @@ const SideNav = () => {
         {session?.user ? (
           <div className='w-full flex flex-col'>
 
-            <Link href='/profile' className="flex flex-row m-5">
+            <div className="flex flex-row m-5">
               <Image
                 src={session?.user.image}
                 width={37}
@@ -59,7 +59,7 @@ const SideNav = () => {
                 alt='profile'
               />
                 <span className="ml-4 font-satoshi font-bold flex justify-center items-center text-center text-2xl">{session?.user.name}</span>
-            </Link>
+            </div>
              
 
             <Link href='/' className="button">
@@ -72,47 +72,47 @@ const SideNav = () => {
                 <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">All Tasks</span>
             </Link> 
 
-            <Link href='/meeting-plans' className="button">
+            <Link href='/mechanical' className="button">
               <Image
                 src="/assets/icons/meeting-plans.svg"
                 width={24}
                 height={20}
                 className='rounded-full'
-                alt='meeting-plans'/>
-                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Meeting Plans</span>
+                alt='mechanical'/>
+                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Mechanical</span>
             </Link>
 
            
-            <Link href='/cad-manufacturing' className="button">
+            <Link href='/outreach' className="button">
               <Image
                 src="/assets/icons/cad-manufacturing.svg"
                 width={24}
                 height={20}
                 className='rounded-full'
-                alt='cad-manufacturing'/>
-                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">CAD/Manufacturing</span>
+                alt='outreach'/>
+                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Outreach</span>
             </Link>
 
 
-            <Link href='/software-electrical' className="button">
+            <Link href='/programming' className="button">
               <Image
                 src="/assets/icons/code-new.svg"
                 width={24}
                 height={20}
                 className='rounded-full'
-                alt='software-electrical'/>
-                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Software/Electrical</span>
+                alt='programming'/>
+                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Programming</span>
             </Link>
 
            
-            <Link href='/buisnes-outreach' className="button">
+            <Link href='/business' className="button">
               <Image
                 src="/assets/icons/buisness-outreach.svg"
                 width={24}
                 height={20}
                 className='rounded-full'
-                alt='buisnes-outreach'/>
-                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Buisness/Outreach</span>
+                alt='business'/>
+                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Business</span>
             </Link>
 
 
@@ -171,7 +171,6 @@ const SideNav = () => {
             {toggleDropdown && (
               <div className='dropdown'>
                 <Link
-                  href='/profile'
                   className='dropdown_link'
                   onClick={() => setToggleDropdown(false)}
                 >

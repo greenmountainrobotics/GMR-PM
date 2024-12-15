@@ -64,12 +64,12 @@
       hsla(215, 98%, 61%, 1) 0px,
       transparent 0%
     ),
-    radial-gradient(at 97% 21%, hsla(125, 98%, 72%, 1) 0px, transparent 50%),
-    radial-gradient(at 52% 99%, rgba(0, 73, 34, 0.992) 0px, transparent 50%),
-    radial-gradient(at 10% 29%, rgb(32, 153, 87) 0px, transparent 50%),
-    radial-gradient(at 97% 96%, rgb(89, 148, 0) 0px, transparent 50%),
-    radial-gradient(at 33% 50%, rgb(0, 48, 29) 0px, transparent 50%),
-    radial-gradient(at 79% 53%, rgb(0, 58, 31) 0px, transparent 50%);
+    radial-gradient(at 97% 21%, rgb(254, 114, 114) 0px, transparent 50%),
+    radial-gradient(at 52% 99%, rgba(73, 0, 0, 0.992) 0px, transparent 50%),
+    radial-gradient(at 10% 29%, rgb(153, 86, 32) 0px, transparent 50%),
+    radial-gradient(at 97% 96%, rgb(148, 59, 0) 0px, transparent 50%),
+    radial-gradient(at 33% 50%, rgb(48, 0, 0) 0px, transparent 50%),
+    radial-gradient(at 79% 53%, rgb(58, 0, 0) 0px, transparent 50%);
   position: absolute;
   content: "";
   width: 100%;
@@ -131,15 +131,15 @@
 }
 
 .black_btn {
-  @apply rounded-full border border-black bg-green-900 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
+  @apply rounded-full border border-black bg-red-900 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center;
 }
 
 .sign_in {
-  @apply rounded-full border border-black bg-green-900 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center w-36 h-14 m-10;
+  @apply rounded-full border border-black bg-red-900 py-1.5 px-5 text-white transition-all hover:bg-white hover:text-black text-center text-sm font-inter flex items-center justify-center w-36 h-14 m-10;
 }
 
 .outline_btn {
-  @apply rounded-full border border-green-900 bg-transparent py-1.5 px-5 text-green-900 transition-all hover:bg-green-900 hover:text-white text-center text-sm font-inter flex items-center justify-center;
+  @apply rounded-full border border-red-900 bg-transparent py-1.5 px-5 text-red-900 transition-all hover:bg-red-900 hover:text-white text-center text-sm font-inter flex items-center justify-center;
 }
 
 .head_text {
@@ -233,7 +233,7 @@
 }
 
 .prompt_card:hover {
-  @apply bg-green-900;
+  @apply bg-red-900;
 }
 
 .side_nav {
@@ -244,7 +244,7 @@
 }
 
 .button:hover{
-  @apply bg-green-900;
+  @apply bg-red-900;
 }
 
 .flex-center {

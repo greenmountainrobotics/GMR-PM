@@ -16,7 +16,6 @@ const PromptSchema = new Schema({
   title: {
     type: String,
     required: [true, 'Title is required.'],
-  
   },
 });
 
