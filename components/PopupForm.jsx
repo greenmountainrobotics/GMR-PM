@@ -49,6 +49,7 @@ const PopupForm = ({ type, post, setPost, submitting, handleSubmit }) => {
             <option value="Outreach">Outreach</option>
             <option value="Programming">Programming</option>
             <option value="Business">Business</option>
+            <option value="Done">Done</option>
           </select>
         </label>
 

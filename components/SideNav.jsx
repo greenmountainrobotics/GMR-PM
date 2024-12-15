@@ -69,7 +69,7 @@ const SideNav = () => {
                 height={20}
                 className='rounded-full'
                 alt='all-tasks'/>
-                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">All Tasks</span>
+                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">To-Do</span>
             </Link> 
 
             <Link href='/mechanical' className="button">
@@ -113,6 +113,16 @@ const SideNav = () => {
                 className='rounded-full'
                 alt='business'/>
                 <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Business</span>
+            </Link>
+
+            <Link href='/done' className="button">
+              <Image
+                src="/assets/icons/buisness-outreach.svg"
+                width={24}
+                height={20}
+                className='rounded-full'
+                alt='business'/>
+                <span className="ml-4 font-bold flex justify-center items-center text-center text-1xl">Finished Tasks</span>
             </Link>
 
 

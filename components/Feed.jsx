@@ -8,16 +8,18 @@ const PromptCardList = ({ data, handleTagClick, refresh }) => {
   
 
   return (
-    <div className='prompt_layout'>
-      {data.map((post) => (
-        <PromptCard
-          key={post._id}
-          post={post}
-          handleTagClick={handleTagClick}
-          refresh= {refresh}
-        /> 
-      ))}
-    </div>
+<div className='prompt_layout'>
+  {data
+    .filter((post) => post.tag !== "Done") // Filter out posts with the tag "Done"
+    .map((post) => (
+      <PromptCard
+        key={post._id}
+        post={post}
+        handleTagClick={handleTagClick}
+        refresh={refresh}
+      />
+    ))}
+</div>
   );
 };
 
