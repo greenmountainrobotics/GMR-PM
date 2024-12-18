@@ -21,6 +21,12 @@ const handler = NextAuth({
     },
     async signIn({ account, profile, user, credentials }) {
       try {
+        // Check if email ends with @cvsdvt.org
+        if (!profile.email.endsWith('@cvsdvt.org')) {
+          console.log('Email must end with @cvsdvt.org');
+          return false; // Prevent sign-in if the email domain is incorrect
+        }
+
         await connectToDB();
 
         // check if user already exists
@@ -35,13 +41,13 @@ const handler = NextAuth({
           });
         }
 
-        return true
+        return true;
       } catch (error) {
         console.log("Error checking if user exists: ", error.message);
-        return false
+        return false;
       }
     },
   }
-})
+});
 
 export { handler as GET, handler as POST }
