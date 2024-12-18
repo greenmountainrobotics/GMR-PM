@@ -10,7 +10,8 @@ export const GET = async (request) => {
         const response = new Response(JSON.stringify(prompts), { status: 200 });
         
         // Add the 'Cache-Control' header to prevent caching
-        response.headers.set('Cache-Control', 'no-store');
+        response.headers.set('Cache-Control', 'no-cache, must-revalidate');
+
 
         return response;
     } catch (error) {
