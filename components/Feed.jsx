@@ -1,24 +1,19 @@
-"use client";
-
 import { useState, useEffect } from "react";
 
 import PromptCard from "./PromptCard";
 
 const PromptCardList = ({ data, handleTagClick, refresh }) => {
-  
-
   return (
-<div className='prompt_layout'>
-  {data
-    .map((post) => (
-      <PromptCard
-        key={post._id}
-        post={post}
-        handleTagClick={handleTagClick}
-        refresh={refresh}
-      />
-    ))}
-</div>
+    <div className="prompt_layout">
+      {data.map((post) => (
+        <PromptCard
+          key={post._id}
+          post={post}
+          handleTagClick={handleTagClick}
+          refresh={refresh}
+        />
+      ))}
+    </div>
   );
 };
 
@@ -31,18 +26,22 @@ const Feed = () => {
   const [searchedResults, setSearchedResults] = useState([]);
 
   const fetchPosts = async () => {
-    const response = await fetch("/api/prompt", {
-      method: "GET",
-      headers: {
-          "Cache-Control": "no-cache" // Forces the browser to always fetch the fresh data
-      }
-  })
-    const data =  await response.json();
+    try {
+      const response = await fetch("/api/prompt", {
+        method: "GET",
+        headers: {
+          "Cache-Control": "no-cache", // Forces the browser to always fetch fresh data
+        },
+      });
+      const data = await response.json();
 
-    setAllPosts(data);
+      setAllPosts(data);
+    } catch (error) {
+      console.error("Failed to fetch posts:", error);
+    }
   };
 
-  useEffect(() => { 
+  useEffect(() => {
     fetchPosts();
   }, []);
 
@@ -77,27 +76,39 @@ const Feed = () => {
   };
 
   return (
-    <section className='feed'>
-      <form className='pl-10 pr-1 relative w-full flex-center'>
+    <section className="feed">
+      <form className="pl-10 pr-1 relative w-full flex-center">
         <input
-          type='text'
-          placeholder='Search for a tag or a username'
+          type="text"
+          placeholder="Search for a tag or a username"
           value={searchText}
           onChange={handleSearchChange}
           required
-          className='search_input peer'
+          className="search_input peer"
         />
       </form>
+
+      {/* Refresh Button */}
+      <div
+        className="refresh-button cursor-pointer bg-blue-500 text-white px-4 py-2 rounded-lg text-center mt-4"
+        onClick={fetchPosts}
+      >
+        Refresh Prompts
+      </div>
 
       {/* All Prompts */}
       {searchText ? (
         <PromptCardList
           data={searchedResults}
           handleTagClick={handleTagClick}
-          refresh = {fetchPosts}
+          refresh={fetchPosts}
         />
       ) : (
-        <PromptCardList data={allPosts} handleTagClick={handleTagClick} refresh = {fetchPosts} />
+        <PromptCardList
+          data={allPosts}
+          handleTagClick={handleTagClick}
+          refresh={fetchPosts}
+        />
       )}
     </section>
   );
