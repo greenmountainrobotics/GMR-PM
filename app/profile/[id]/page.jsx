@@ -2,6 +2,9 @@
 
 import { useEffect, useState } from "react";
 import { useSearchParams } from "next/navigation";
+export const runtime = 'edge';
+
+
 
 import Profile from "@components/Profile";
 

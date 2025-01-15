@@ -4,6 +4,8 @@ import GoogleProvider from 'next-auth/providers/google';
 import User from '@models/user';
 import { connectToDB } from '@utils/database';
 
+export const runtime = 'edge';
+
 const handler = NextAuth({
   providers: [
     GoogleProvider({
