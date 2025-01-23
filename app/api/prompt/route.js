@@ -1,6 +1,8 @@
 import Prompt from "@models/prompt";
 import { connectToDB } from "@utils/database";
 
+export const dynamic = 'force-dynamic'
+
 export const GET = async (request) => {
     try {
         // Establish a database connection with pooling
@@ -12,7 +14,7 @@ export const GET = async (request) => {
         // Debug: Log fetched prompts
         console.log("Fetched Prompts:", prompts);
 
-        // Set response headers
+        // Set response headers 
         const headers = new Headers({
             "Content-Type": "application/json",
             "Cache-Control": "no-cache, must-revalidate", // Prevent caching
